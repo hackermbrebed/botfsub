@@ -32,8 +32,9 @@ Setelah semuanya terinstall, sekarang langkah-langkah untuk menjalankan scriptny
    nano .env
    ```
    Setelah masuk ke tampilan file .env silahkan isi *API_ID, API_HUSH, BOT_TOKEN, CHANNEL_ID, CHANNEL_LINK, ADMIN_ID* dengan punya kalian.
+   Untuk keluar dari file .env tekan Crtl+O lalu enter, tekan lagi Ctrl+X
 
-4. Install requirement:
+5. Install requirement:
    ```bash
    pip install -r requirements.txt
    ```
@@ -41,7 +42,7 @@ Setelah semuanya terinstall, sekarang langkah-langkah untuk menjalankan scriptny
    ```bash
    git pull origin main
    ```
-5. Jalankan bot.
+6. Jalankan bot.
    ```bash
    python main.py
    ```
