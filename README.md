@@ -1,23 +1,48 @@
-**Welcome** di botnya ***Udin***
-     Lu asik gw asik
-          Lu *babi* gw *ganteng*
-               ***--Untuk menjalankan script botnya--***
-                    **>install paket<**
-$ pkg update
-$ pkg upgrade
-$ pkg install python
-$ pkg install git
-$ pkg install python-pip
-$ pip install telethon
-**>clone github<**
-$ git clone https://github.com/hackermbrebed/botfsub
-**>masuk direktori file<**
-$ cd botfsub
-**>konfigurasi file .env dengan data botnya<**
-$ nano .env
-(isi semua file .env dengan data bot lalu tekan ctrl+O lalu enter dan kembali dengan tekan ctrl+X)
-**>install requirement<**
-$ pip install -r requirements.txt
-$ git pull origin main
-**>jalankan botnya<**
-python main.py
+## BotFsub
+
+Script ini dirancang oleh ***Kaisar Udin*** sehingga tinggal menjalankannya, bot ini juga memiliki beberapa fitur diantaranya adalah Fsub dan otomatis mencari file_id.
+
+### Cara menjalankan Script
+
+Sebelum menjalankan script, install dulu paket dasarnya:
+
+```bash
+pkg update
+pkg upgrade
+pkg install python
+pkg install git
+pkg install python-pip
+pip install telethon 
+```
+
+Setelah semuanya terinstall, sekarang langkah-langkah untuk menjalankan scriptnya:
+
+1. Klone repository:
+   ```bash
+   git clone https://github.com/hackermbrebed/botfsub
+   ```
+
+2. Masuk ke direktory:
+   ```bash
+   cd botfsub
+   ```
+
+3. Konfigurasi file .env:
+   ```bash
+   nano .env
+   ```
+   Setelah masuk ke tampilan file .env silahkan isi *API_ID, API_HUSH, BOT_TOKEN, CHANNEL_ID, CHANNEL_LINK, ADMIN_ID* dengan punya kalian.
+
+4. Install requirement:
+   ```bash
+   pip install -r requirements.txt
+   ```
+
+   ```bash
+   git pull origin main
+   ```
+5. Jalankan bot.
+   ```bash
+   python main.py
+   ```
+Jika sudah muncul tulisan ***Connecting*** pada terminal, maka bot sudah berhasil dijalankan.
