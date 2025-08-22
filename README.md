@@ -1,8 +1,8 @@
 **Welcome** di botnya ***Udin***
-Lu asik gw asik
-Lu *babi* gw *ganteng*
- ***--Untuk menjalankan script botnya--***
-**>install paket<**
+     Lu asik gw asik
+          Lu *babi* gw *ganteng*
+               ***--Untuk menjalankan script botnya--***
+                    **>install paket<**
 $ pkg update
 $ pkg upgrade
 $ pkg install python
