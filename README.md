@@ -1,6 +1,6 @@
 ## BotFsub
 
-Script ini dirancang oleh ***Kaisar Udin*** sehingga tinggal menjalankannya, bot ini juga memiliki beberapa fitur diantaranya adalah Fsub dan otomatis mencari file_id.
+Script ini dirancang oleh ***Kaisar Udin*** sehingga tinggal menjalankannya, bot ini juga memiliki beberapa fitur diantaranya adalah Fsub dan Broadcast.
 
 ### Cara menjalankan Script
 
