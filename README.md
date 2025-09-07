@@ -47,3 +47,13 @@ Setelah semuanya terinstall, sekarang langkah-langkah untuk menjalankan scriptny
    python main.py
    ```
 Jika sudah muncul tulisan ***Connecting*** pada terminal, maka bot sudah berhasil dijalankan.
+<blockquote>
+<b>   
+
+   Bayanganmu menutupi singgasanaku
+
+Kau terlalu tinggi
+
+Menunduklah padaku!
+</b>
+</blockquote>
