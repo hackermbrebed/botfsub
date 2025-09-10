@@ -127,12 +127,12 @@ async def start_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
         if video_to_send:
             try:
-                caption_text = "<blockquote>✅ Selamat datang! Anda berhasil bergabung ke channel.</blockquote>"
+                caption_text = "<blockquote>Enjoy aja nontonnya☕.</blockquote>"
                 await update.message.reply_video(video=video_to_send, caption=caption_text, parse_mode=ParseMode.HTML)
             except Exception as e:
                 await update.message.reply_text(f"<blockquote>❌ Terjadi kesalahan saat mengirim video: {html.escape(str(e))}</blockquote>", parse_mode=ParseMode.HTML)
         else:
-            await update.message.reply_text("<blockquote>✅ Anda sudah bergabung. Namun, parameter video tidak valid.</blockquote>", parse_mode=ParseMode.HTML)
+            await update.message.reply_text("<blockquote>✅ Anda sudah bergabung. Gunakan link yang dikirim admin.</blockquote>", parse_mode=ParseMode.HTML)
 
 async def help_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
     """Menampilkan daftar perintah yang tersedia."""
@@ -140,25 +140,25 @@ async def help_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
     is_admin = update.effective_user.id in config.get("admin_ids", [])
     
     help_message = "<b>Daftar Perintah Bot:</b>\n\n"
-    help_message += "<b>Untuk Semua Pengguna:</b>\n"
-    help_message += "<code>/start</code> - Memulai bot dan memeriksa langganan channel.\n"
-    help_message += "<code>/help</code> - Menampilkan daftar perintah ini.\n\n"
+    help_message += "👤<b>Untuk Semua Pengguna:</b>\n"
+    help_message += "🔥<code>/start</code> - Memulai bot dan memeriksa langganan channel.\n"
+    help_message += "🔥<code>/help</code> - Menampilkan daftar perintah ini.\n\n"
     
     if not is_admin:
       await update.message.reply_text(f"<blockquote>{help_message}</blockquote>", parse_mode=ParseMode.HTML)
       return
 
-    help_message += "<b>Untuk Admin:</b>\n"
-    help_message += "<code>/addfsubchannel &lt;id_channel&gt;</code> - Menambah channel untuk FSub.\n"
-    help_message += "<code>/delfsubchannel &lt;id_channel&gt;</code> - Menghapus channel FSub.\n"
-    help_message += "<code>/addfsubbutton &lt;teks&gt; &lt;url&gt;</code> - Menambah tombol FSub baru.\n"
-    help_message += "<code>/delfsubbutton &lt;teks&gt;</code> - Menghapus tombol FSub.\n"
-    help_message += "<code>/listfsub</code> - Menampilkan daftar channel dan tombol FSub.\n"
-    help_message += "<code>/setwelcome</code> - Mengatur pesan sambutan. Balas dengan teks baru.\n"
-    help_message += "<code>/getprofil</code> - Mengatur gambar profil bot. Balas pesan dengan foto.\n"
-    help_message += "<code>/addvideo &lt;nama_video&gt;</code> - Menyimpan video. Balas pesan dengan video.\n"
-    help_message += "<code>/broadcast</code> - Mengirim pesan broadcast ke semua pengguna. Balas pesan dengan teks/media.\n"
-    help_message += "<code>/addbutton &lt;teks&gt; &lt;url&gt;</code> - Menambahkan tombol inline pada pesan yang dibalas.\n"
+    help_message += "👑<b>Untuk Admin:</b>\n"
+    help_message += "🔥<code>/addfsubchannel &lt;id_channel&gt;</code> - Menambah channel untuk FSub.\n"
+    help_message += "🔥<code>/delfsubchannel &lt;id_channel&gt;</code> - Menghapus channel FSub.\n"
+    help_message += "🔥<code>/addfsubbutton &lt;teks&gt; &lt;url&gt;</code> - Menambah tombol FSub baru.\n"
+    help_message += "🔥<code>/delfsubbutton &lt;teks&gt;</code> - Menghapus tombol FSub.\n"
+    help_message += "🔥<code>/listfsub</code> - Menampilkan daftar channel dan tombol FSub.\n"
+    help_message += "🔥<code>/setwelcome</code> - Mengatur pesan sambutan. Balas dengan teks baru.\n"
+    help_message += "🔥<code>/getprofil</code> - Mengatur gambar profil bot. Balas pesan dengan foto.\n"
+    help_message += "🔥<code>/addvideo &lt;nama_video&gt;</code> - Menyimpan video. Balas pesan dengan video.\n"
+    help_message += "🔥<code>/broadcast</code> - Mengirim pesan broadcast ke semua pengguna. Balas pesan dengan teks/media.\n"
+    help_message += "🔥<code>/addbutton &lt;teks&gt; &lt;url&gt;</code> - Menambahkan tombol inline pada pesan yang dibalas.\n"
     
     await update.message.reply_text(f"<blockquote>{help_message}</blockquote>", parse_mode=ParseMode.HTML)
 
@@ -272,7 +272,7 @@ async def set_welcome_message_handler(update: Update, context: ContextTypes.DEFA
         
     reply_message = update.message.reply_to_message
     if not reply_message or not reply_message.text:
-        await update.message.reply_text("<blockquote>❌ Mohon balas pesan teks yang ingin Anda jadikan pesan sambutan.</blockquote>", parse_mode=ParseMode.HTML)
+        await update.message.reply_text("<blockquote>⚙️ Mohon balas pesan teks yang ingin Anda jadikan pesan sambutan.</blockquote>", parse_mode=ParseMode.HTML)
         return
 
     new_message = reply_message.text
@@ -307,10 +307,10 @@ async def add_video_handler(update: Update, context: ContextTypes.DEFAULT_TYPE):
         
     reply_message = update.message.reply_to_message
     if not reply_message or not reply_message.video:
-        await update.message.reply_text("<blockquote>❌ Mohon balas video dengan perintah /addvideo &lt;nama_video&gt;.</blockquote>", parse_mode=ParseMode.HTML)
+        await update.message.reply_text("<blockquote>⚙️ Mohon balas video dengan perintah /addvideo &lt;nama_video&gt;.</blockquote>", parse_mode=ParseMode.HTML)
         return
     if not context.args:
-        await update.message.reply_text("<blockquote>❌ Mohon berikan nama untuk video ini. Contoh: <code>/addvideo video_utama</code></blockquote>", parse_mode=ParseMode.HTML)
+        await update.message.reply_text("<blockquote>⚙️ Mohon berikan nama untuk video ini. Contoh: <code>/addvideo video_utama</code></blockquote>", parse_mode=ParseMode.HTML)
         return
     parameter_name = context.args[0]
     file_id = reply_message.video.file_id
@@ -331,7 +331,7 @@ async def broadcast_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
     reply_message = update.message.reply_to_message
     if not reply_message:
-        await update.message.reply_text("<blockquote>❌ Mohon balas pesan yang ingin Anda broadcast.</blockquote>", parse_mode=ParseMode.HTML)
+        await update.message.reply_text("<blockquote>⚙️ Mohon balas pesan yang ingin Anda broadcast.</blockquote>", parse_mode=ParseMode.HTML)
         return
 
     user_ids = set(config.get("user_ids", []))
@@ -369,7 +369,7 @@ async def broadcast_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
     config["user_ids"] = list(user_ids)
     save_config(config)
     
-    await update.message.reply_text(f"<blockquote>✅ Broadcast selesai!\n\n- Pesan terkirim: {sent_count}\n- Pengguna yang memblokir: {blocked_count}\n\nJumlah pengguna aktif saat ini: {len(user_ids)}</blockquote>", parse_mode=ParseMode.HTML)
+    await update.message.reply_text(f"<blockquote>✅ Broadcast selesai!\n\n- 📢Pesan terkirim: {sent_count}\n- 💣Pengguna yang memblokir: {blocked_count}\n\n👤Jumlah pengguna aktif saat ini: {len(user_ids)}</blockquote>", parse_mode=ParseMode.HTML)
 
 async def add_button_handler(update: Update, context: ContextTypes.DEFAULT_TYPE):
     """Menambahkan tombol inline pada pesan yang dibalas. (SUDAH DIPERBAIKI UNTUK TEKS MULTI-KATA)"""
@@ -380,11 +380,11 @@ async def add_button_handler(update: Update, context: ContextTypes.DEFAULT_TYPE)
 
     reply_message = update.message.reply_to_message
     if not reply_message:
-        await update.message.reply_text("<blockquote>❌ Mohon balas pesan yang ingin Anda tambahkan tombol.</blockquote>", parse_mode=ParseMode.HTML)
+        await update.message.reply_text("<blockquote>⚙️ Mohon balas pesan yang ingin Anda tambahkan tombol.</blockquote>", parse_mode=ParseMode.HTML)
         return
         
     if len(context.args) < 2:
-        await update.message.reply_text("<blockquote>❌ Mohon sertakan teks dan URL tombol. Contoh:\n<code>/addbutton Kunjungi Website https://google.com</code></blockquote>", parse_mode=ParseMode.HTML)
+        await update.message.reply_text("<blockquote>⚙️ Mohon sertakan teks dan URL tombol. Contoh:\n<code>/addbutton Kunjungi Website https://google.com</code></blockquote>", parse_mode=ParseMode.HTML)
         return
 
     button_text = " ".join(context.args[:-1])
