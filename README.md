@@ -11,8 +11,7 @@ pkg update
 pkg upgrade
 pkg install python
 pkg install git
-pkg install python-pip
-pip install telethon 
+pkg install python-pip 
 ```
 
 Setelah semuanya terinstall, sekarang langkah-langkah untuk menjalankan scriptnya:
