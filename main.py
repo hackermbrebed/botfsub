@@ -1,3 +1,6 @@
+# Copyright (c) 2025 @hacker.mbrebed
+# This script is licensed under the MIT License.
+# See the LICENSE file for details.
 import os
 import json
 import logging
