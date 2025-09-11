@@ -85,7 +85,7 @@ async def start_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
     """Menangani perintah /start."""
     config = get_config()
     if not config["admin_ids"]:
-        await update.message.reply_text("<blockquote>❌ Bot belum diatur. Mohon minta admin untuk menjalankan perintah /setup terlebih dahulu.</blockquote>", parse_mode=ParseMode.HTML)
+        await update.message.reply_text("<blockquote>❌ Bot belum diatur. Gunakan perintah /setup terlebih dahulu untuk menjadi admin.</blockquote>", parse_mode=ParseMode.HTML)
         return
         
     user_ids = set(config.get("user_ids", []))
@@ -139,16 +139,16 @@ async def help_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
     config = get_config()
     is_admin = update.effective_user.id in config.get("admin_ids", [])
     
-    help_message = "        🛠️<b>Daftar Perintah Bot:</b>\n\n"
-    help_message += "    👤<b>Untuk Semua Pengguna:</b>\n"
-    help_message += "🔥 <code>/start</code> - Memulai bot dan memeriksa langganan channel.\n"
-    help_message += "🔥 <code>/help</code> - Menampilkan daftar perintah ini.\n\n"
+    help_message = "                         🛠️<b>Daftar Perintah Bot:</b>\n\n"
+    help_message += "          👤<b>Untuk Semua Pengguna:</b>\n"
+    help_message += "🔥 <i>/start</i> - Memulai bot.\n"
+    help_message += "🔥 <i>/help</i> - Menampilkan daftar perintah bot.\n\n"
     
     if not is_admin:
       await update.message.reply_text(f"<blockquote>{help_message}</blockquote>", parse_mode=ParseMode.HTML)
       return
 
-    help_message += "    👤<b>Untuk Admin:</b>\n"
+    help_message += "          👤<b>Untuk Admin:</b>\n"
     help_message += "🔥 <i>/addfsubchannel &lt;id_channel&gt;</i> - Menambahkan channel.\n"
     help_message += "🔥 <i>/delfsubchannel &lt;id_channel&gt;</i> - Menghapus channel.\n"
     help_message += "🔥 <i>/addfsubbutton &lt;teks&gt; &lt;url&gt;</i> - Menambahkan tombol.\n"
@@ -218,7 +218,7 @@ async def list_fsub(update: Update, context: ContextTypes.DEFAULT_TYPE):
     channel_list = "\n".join([f"• <code>{id}</code>" for id in config.get("fsub_channels", [])])
     button_list = "\n".join([f"• {btn['text']} | <code>{btn['url']}</code>" for btn in config.get("fsub_buttons", [])])
     
-    message = f"<b>Daftar Channel FSub:</b>\n{channel_list or 'Tidak ada channel.'}\n\n<b>Daftar Tombol FSub:</b>\n{button_list or 'Tidak ada tombol.'}"
+    message = f"<b>🔊 Daftar Channel FSub:</b>\n{channel_list or 'Tidak ada channel.'}\n\n<b>🔊 Daftar Tombol FSub:</b>\n{button_list or 'Tidak ada tombol.'}"
     await update.message.reply_text(f"<blockquote>{message}</blockquote>", parse_mode=ParseMode.HTML)
 
 async def add_fsub_button(update: Update, context: ContextTypes.DEFAULT_TYPE):
@@ -295,7 +295,7 @@ async def set_profile_photo_handler(update: Update, context: ContextTypes.DEFAUL
     file_id = reply_message.photo[-1].file_id
     config["photo_id"] = file_id
     save_config(config)
-    caption_text = "<blockquote>✅ Gambar profil berhasil diatur!</blockquote>"
+    caption_text = "<blockquote>✅ Gambar sambutan berhasil diatur!</blockquote>"
     await update.message.reply_photo(photo=file_id, caption=caption_text, parse_mode=ParseMode.HTML)
 
 async def add_video_handler(update: Update, context: ContextTypes.DEFAULT_TYPE):
