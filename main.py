@@ -120,7 +120,7 @@ async def start_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
         video_list = config.get("videos", {})
         
         if not start_parameter:
-            await update.message.reply_text("<blockquote>✅ Anda sudah bergabung. Gunakan link /start dengan parameter yang valid.</blockquote>", parse_mode=ParseMode.HTML)
+            await update.message.reply_text("<blockquote>✅ Anda sudah bergabung. Gunakan link yang dikirim admin.</blockquote>", parse_mode=ParseMode.HTML)
             return
 
         video_to_send = video_list.get(start_parameter)
@@ -139,26 +139,26 @@ async def help_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
     config = get_config()
     is_admin = update.effective_user.id in config.get("admin_ids", [])
     
-    help_message = "<b>Daftar Perintah Bot:</b>\n\n"
-    help_message += "👤<b>Untuk Semua Pengguna:</b>\n"
-    help_message += "🔥<code>/start</code> - Memulai bot dan memeriksa langganan channel.\n"
-    help_message += "🔥<code>/help</code> - Menampilkan daftar perintah ini.\n\n"
+    help_message = "        🛠️<b>Daftar Perintah Bot:</b>\n\n"
+    help_message += "    👤<b>Untuk Semua Pengguna:</b>\n"
+    help_message += "🔥 <code>/start</code> - Memulai bot dan memeriksa langganan channel.\n"
+    help_message += "🔥 <code>/help</code> - Menampilkan daftar perintah ini.\n\n"
     
     if not is_admin:
       await update.message.reply_text(f"<blockquote>{help_message}</blockquote>", parse_mode=ParseMode.HTML)
       return
 
-    help_message += "👑<b>Untuk Admin:</b>\n"
-    help_message += "🔥<code>/addfsubchannel &lt;id_channel&gt;</code> - Menambah channel untuk FSub.\n"
-    help_message += "🔥<code>/delfsubchannel &lt;id_channel&gt;</code> - Menghapus channel FSub.\n"
-    help_message += "🔥<code>/addfsubbutton &lt;teks&gt; &lt;url&gt;</code> - Menambah tombol FSub baru.\n"
-    help_message += "🔥<code>/delfsubbutton &lt;teks&gt;</code> - Menghapus tombol FSub.\n"
-    help_message += "🔥<code>/listfsub</code> - Menampilkan daftar channel dan tombol FSub.\n"
-    help_message += "🔥<code>/setwelcome</code> - Mengatur pesan sambutan. Balas dengan teks baru.\n"
-    help_message += "🔥<code>/getprofil</code> - Mengatur gambar profil bot. Balas pesan dengan foto.\n"
-    help_message += "🔥<code>/addvideo &lt;nama_video&gt;</code> - Menyimpan video. Balas pesan dengan video.\n"
-    help_message += "🔥<code>/broadcast</code> - Mengirim pesan broadcast ke semua pengguna. Balas pesan dengan teks/media.\n"
-    help_message += "🔥<code>/addbutton &lt;teks&gt; &lt;url&gt;</code> - Menambahkan tombol inline pada pesan yang dibalas.\n"
+    help_message += "    👤<b>Untuk Admin:</b>\n"
+    help_message += "🔥 <i>/addfsubchannel &lt;id_channel&gt;</i> - Menambahkan channel.\n"
+    help_message += "🔥 <i>/delfsubchannel &lt;id_channel&gt;</i> - Menghapus channel.\n"
+    help_message += "🔥 <i>/addfsubbutton &lt;teks&gt; &lt;url&gt;</i> - Menambahkan tombol.\n"
+    help_message += "🔥 <i>/delfsubbutton &lt;teks&gt;</i> - Menghapus tombol.\n"
+    help_message += "🔥 <i>/listfsub</i> - Menampilkan daftar channel dan tombol.\n"
+    help_message += "🔥 <i>/setwelcome</i> - Mengatur pesan sambutan.\n"
+    help_message += "🔥 <i>/getprofil</i> - Mengatur gambar sambutan.\n"
+    help_message += "🔥 <i>/addvideo &lt;nama_video&gt;</i> - Menambahkan video & membuat link.\n"
+    help_message += "🔥 <i>/broadcast</i> - Mengirim pesan broadcast ke semua pengguna.\n"
+    help_message += "🔥 <i>/addbutton &lt;teks&gt; &lt;url&gt;</i> - Menambahkan tombol untuk broadcast.\n"
     
     await update.message.reply_text(f"<blockquote>{help_message}</blockquote>", parse_mode=ParseMode.HTML)
 
@@ -369,7 +369,7 @@ async def broadcast_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
     config["user_ids"] = list(user_ids)
     save_config(config)
     
-    await update.message.reply_text(f"<blockquote>✅ Broadcast selesai!\n\n- 📢Pesan terkirim: {sent_count}\n- 💣Pengguna yang memblokir: {blocked_count}\n\n👤Jumlah pengguna aktif saat ini: {len(user_ids)}</blockquote>", parse_mode=ParseMode.HTML)
+    await update.message.reply_text(f"<blockquote>✅ Broadcast selesai!\n\n📢 Pesan terkirim: {sent_count}\n💣 Pengguna yang memblokir: {blocked_count}\n\n👤Jumlah pengguna aktif saat ini: {len(user_ids)}</blockquote>", parse_mode=ParseMode.HTML)
 
 async def add_button_handler(update: Update, context: ContextTypes.DEFAULT_TYPE):
     """Menambahkan tombol inline pada pesan yang dibalas. (SUDAH DIPERBAIKI UNTUK TEKS MULTI-KATA)"""
