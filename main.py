@@ -89,13 +89,13 @@ async def setup_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
     config["admin_ids"].append(admin_id)
     save_config(config)
 
-    await update.message.reply_text("<blockquote>🎉Selamat! Anda sekarang adalah admin dari bot ini.\n\n<i>Powered by <b>Kaisar Udin</b></i>.</blockquote>", parse_mode=ParseMode.HTML)
+    await update.message.reply_text("<blockquote>🎉Selamat! Anda sekarang adalah admin dari bot ini.\n\n𝘗𝘰𝘸𝘦𝘳𝘦𝘥 𝘣𝘰𝘵 𝘣𝘺 𝕂𝕒𝕚𝕤𝕒𝕣 𝕌𝕕𝕚𝕟👑.</blockquote>", parse_mode=ParseMode.HTML)
 
 async def start_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
     """Menangani perintah /start."""
     config = get_config()
     if not config["admin_ids"]:
-        await update.message.reply_text("<blockquote><u><b>HAO!</b> Bot ini dikembangkan oleh <i><b>Kaisar Udin👑</b></i></u>\n\nKonfigurasi dulu botnya sebelum digunakan, dengan perintah /setup.</blockquote>", parse_mode=ParseMode.HTML)
+        await update.message.reply_text("<blockquote><u><b>HAO!</b> Bot ini dikembangkan oleh 𝕂𝕒𝕚𝕤𝕒𝕣 𝕌𝕕𝕚𝕟👑</u>\n\nKonfigurasi dulu botnya sebelum digunakan, dengan perintah /setup.</blockquote>", parse_mode=ParseMode.HTML)
         return
         
     user_ids = set(config.get("user_ids", []))
@@ -137,7 +137,7 @@ async def start_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
         if video_to_send:
             try:
-                caption_text = "<blockquote>Enjoy aja nontonnya☕\n\n<i>Powered by <b>Kaisar Udin</b></i>.</blockquote>"
+                caption_text = "<blockquote>Enjoy aja nontonnya☕\n\n𝘗𝘰𝘸𝘦𝘳𝘦𝘥 𝘣𝘰𝘵 𝘣𝘺 𝕂𝕒𝕚𝕤𝕒𝕣 𝕌𝕕𝕚𝕟👑.</blockquote>"
                 await update.message.reply_video(video=video_to_send, caption=caption_text, parse_mode=ParseMode.HTML)
             except Exception as e:
                 await update.message.reply_text(f"<blockquote>❌ Terjadi kesalahan saat mengirim video: {html.escape(str(e))}</blockquote>", parse_mode=ParseMode.HTML)
@@ -168,12 +168,12 @@ COMMAND_DESCRIPTIONS = {
 async def help_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
     """Menampilkan menu utama bantuan dengan tombol kategori."""
     keyboard = InlineKeyboardMarkup([
-        [InlineKeyboardButton("Perintah Pengguna👤", callback_data="help_menu_user")],
-        [InlineKeyboardButton("Perintah Admin👤", callback_data="help_menu_admin")],
+        [InlineKeyboardButton("🄿🄴🅁🄸🄽🅃🄰🄷 🄿🄴🄽🄶🄶🅄🄽🄰👤", callback_data="help_menu_user")],
+        [InlineKeyboardButton("🄿🄴🅁🄸🄽🅃🄰🄷 🄰🄳🄼🄸🄽👤", callback_data="help_menu_admin")],
     ])
     
     await update.message.reply_text(
-        "<blockquote><u><b>HAO!</b> Bot ini dikembangkan oleh <i><b>Kaisar Udin👑</b></i></u>\n\nBerikut adalah daftar dari perintah yang bisa digunakan :</blockquote>", 
+        "<blockquote><u><b>HAO!</b> Bot ini dikembangkan oleh 𝕂𝕒𝕚𝕤𝕒𝕣 𝕌𝕕𝕚𝕟👑</u>\n\nBerikut adalah daftar dari perintah yang bisa digunakan :</blockquote>", 
         reply_markup=keyboard, 
         parse_mode=ParseMode.HTML
     )
@@ -250,8 +250,8 @@ async def help_main_menu_handler(update: Update, context: ContextTypes.DEFAULT_T
     await query.answer()
     
     keyboard = InlineKeyboardMarkup([
-        [InlineKeyboardButton("Perintah Pengguna👤", callback_data="help_menu_user")],
-        [InlineKeyboardButton("Perintah Admin👤", callback_data="help_menu_admin")],
+        [InlineKeyboardButton("🄿🄴🅁🄸🄽🅃🄰🄷 🄿🄴🄽🄶🄶🅄🄽🄰👤", callback_data="help_menu_user")],
+        [InlineKeyboardButton("🄿🄴🅁🄸🄽🅃🄰🄷 🄰🄳🄼🄸🄽👤", callback_data="help_menu_admin")],
     ])
     
     await query.edit_message_text(
@@ -468,7 +468,7 @@ async def broadcast_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
     config["user_ids"] = list(user_ids)
     save_config(config)
     
-    await update.message.reply_text(f"<blockquote>✅ Broadcast selesai!\n\n📢 Pesan terkirim: {sent_count}\n💣 Pengguna yang memblokir: {blocked_count}\n\n👤Jumlah pengguna aktif saat ini: {len(user_ids)}</blockquote>", parse_mode=ParseMode.HTML)
+    await update.message.reply_text(f"<blockquote>✅ 𝐁𝐫𝐨𝐚𝐝𝐜𝐚𝐬𝐭 𝐬𝐞𝐥𝐞𝐬𝐚𝐢!\n\n📢 𝐏𝐞𝐬𝐚𝐧 𝐭𝐞𝐫𝐤𝐢𝐫𝐢𝐦: {sent_count}\n💣 𝐏𝐞𝐧𝐠𝐠𝐮𝐧𝐚 𝐲𝐚𝐧𝐠 𝐦𝐞𝐦𝐛𝐥𝐨𝐤𝐢𝐫: {blocked_count}\n\n👤𝐉𝐮𝐦𝐥𝐚𝐡 𝐩𝐞𝐧𝐠𝐠𝐮𝐧𝐚 𝐚𝐤𝐭𝐢𝐟 𝐬𝐚𝐚𝐭 𝐢𝐧𝐢: {len(user_ids)}</blockquote>", parse_mode=ParseMode.HTML)
 
 async def add_button_handler(update: Update, context: ContextTypes.DEFAULT_TYPE):
     """Menambahkan tombol inline pada pesan yang dibalas."""
