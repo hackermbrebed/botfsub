@@ -89,7 +89,7 @@ async def setup_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
     config["admin_ids"].append(admin_id)
     save_config(config)
 
-    await update.message.reply_text("<blockquote>🎉Selamat! Anda sekarang adalah admin dari bot ini.\n\n𝘗𝘰𝘸𝘦𝘳𝘦𝘥 𝘣𝘰𝘵 𝘣𝘺 𝕂𝕒𝕚𝕤𝕒𝕣 𝕌𝕕𝕚𝕟👑.</blockquote>", parse_mode=ParseMode.HTML)
+    await update.message.reply_text("<blockquote>🎉Selamat! Anda sekarang adalah admin dari bot ini.\n\n𝘗𝘰𝘸𝘦𝘳𝘦𝘥 𝘣𝘰𝘵 𝘣𝘺 𝕂𝕒𝕚𝕤𝕒𝕣 𝕌𝕕𝕚𝕟👑</blockquote>", parse_mode=ParseMode.HTML)
 
 async def start_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
     """Menangani perintah /start."""
@@ -110,7 +110,7 @@ async def start_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
     
     if not is_subscribed:
         welcome_message = config.get('welcome_message', '❌ Anda belum bergabung ke channel kami.\n\nSilakan bergabung ke channel berikut untuk bisa menggunakan bot ini.')
-        message_text = f"<blockquote>{html.escape(welcome_message)}</blockquote>"
+        message_text = f"<blockquote>{html.escape(welcome_message)}</blockquote>\n<blockquote>𝘗𝘰𝘸𝘦𝘳𝘦𝘥 𝘣𝘰𝘵 𝘣𝘺 𝕂𝕒𝕚𝕤𝕒𝕣 𝕌𝕕𝕚𝕟👑</blockquote>"
         
         keyboard_buttons = []
         for btn in config.get("fsub_buttons", []):
@@ -130,19 +130,19 @@ async def start_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
         video_list = config.get("videos", {})
         
         if not start_parameter:
-            await update.message.reply_text("<blockquote>✅ Anda sudah bergabung. Gunakan link yang dikirim admin.</blockquote>", parse_mode=ParseMode.HTML)
+            await update.message.reply_text("<blockquote>✅ Anda sudah bergabung. Gunakan link yang dikirim admin.</blockquote>\n♥️♦️♣️♠️\n<blockquote>𝘗𝘰𝘸𝘦𝘳𝘦𝘥 𝘣𝘰𝘵 𝘣𝘺 𝕂𝕒𝕚𝕤𝕒𝕣 𝕌𝕕𝕚𝕟👑</blockquote>", parse_mode=ParseMode.HTML)
             return
 
         video_to_send = video_list.get(start_parameter)
 
         if video_to_send:
             try:
-                caption_text = "<blockquote>Enjoy aja nontonnya☕\n\n𝘗𝘰𝘸𝘦𝘳𝘦𝘥 𝘣𝘰𝘵 𝘣𝘺 𝕂𝕒𝕚𝕤𝕒𝕣 𝕌𝕕𝕚𝕟👑.</blockquote>"
+                caption_text = "Enjoy aja nontonnya☕\n\n<blockquote>𝘗𝘰𝘸𝘦𝘳𝘦𝘥 𝘣𝘰𝘵 𝘣𝘺 𝕂𝕒𝕚𝕤𝕒𝕣 𝕌𝕕𝕚𝕟👑.</blockquote>"
                 await update.message.reply_video(video=video_to_send, caption=caption_text, parse_mode=ParseMode.HTML)
             except Exception as e:
                 await update.message.reply_text(f"<blockquote>❌ Terjadi kesalahan saat mengirim video: {html.escape(str(e))}</blockquote>", parse_mode=ParseMode.HTML)
         else:
-            await update.message.reply_text("<blockquote>✅ Anda sudah bergabung. Gunakan link yang dikirim admin.</blockquote>", parse_mode=ParseMode.HTML)
+            await update.message.reply_text("<blockquote>✅ Anda sudah bergabung. Gunakan link yang dikirim admin.</blockquote>\n♥️♦️♣️♠️\n<blockquote>𝘗𝘰𝘸𝘦𝘳𝘦𝘥 𝘣𝘰𝘵 𝘣𝘺 𝕂𝕒𝕚𝕤𝕒𝕣 𝕌𝕕𝕚𝕟👑</blockquote>", parse_mode=ParseMode.HTML)
 
 # --- Deskripsi Perintah ---
 COMMAND_DESCRIPTIONS = {
@@ -190,17 +190,17 @@ async def help_menu_handler(update: Update, context: ContextTypes.DEFAULT_TYPE):
     message_text = ""
     
     if query.data == "help_menu_user":
-        message_text = "<b>Berikut adalah daftar perintah yang bisa digunakan oleh pengguna:</b>\n\n<i>Powered by <b>Kaisar Udin.</b></i>\n\n"
+        message_text = "𝐁𝐞𝐫𝐢𝐤𝐮𝐭 𝐚𝐝𝐚𝐥𝐚𝐡 𝐝𝐚𝐟𝐭𝐚𝐫 𝐩𝐞𝐫𝐢𝐧𝐭𝐚𝐡 𝐲𝐚𝐧𝐠 𝐛𝐢𝐬𝐚 𝐝𝐢𝐠𝐮𝐧𝐚𝐤𝐚𝐧 𝐨𝐥𝐞𝐡 𝐩𝐞𝐧𝐠𝐠𝐮𝐧𝐚:\n\n𝘗𝘰𝘸𝘦𝘳𝘦𝘥 𝘣𝘰𝘵 𝘣𝘺 𝕂𝕒𝕚𝕤𝕒𝕣 𝕌𝕕𝕚𝕟👑.\n\n"
         keyboard_buttons.append([InlineKeyboardButton("/start", callback_data="help_desc_user_start")])
         keyboard_buttons.append([InlineKeyboardButton("/help", callback_data="help_desc_user_help")])
         keyboard_buttons.append([InlineKeyboardButton("⬅️ Kembali", callback_data="help_main_menu")])
     
     elif query.data == "help_menu_admin":
         if not is_admin:
-            await query.edit_message_text("<blockquote>🖕 Lu bukan admin kocak!!! Perintah ini cuma bisa diakses admin.</blockquote>", parse_mode=ParseMode.HTML)
+            await query.edit_message_text("<blockquote>🖕 𝐋𝐮 𝐛𝐮𝐤𝐚𝐧 𝐚𝐝𝐦𝐢𝐧 𝐤𝐨𝐜𝐚𝐤!!! 𝐏𝐞𝐫𝐢𝐧𝐭𝐚𝐡 𝐢𝐧𝐢 𝐜𝐮𝐦𝐚 𝐛𝐢𝐬𝐚 𝐝𝐢𝐚𝐤𝐬𝐞𝐬 𝐚𝐝𝐦𝐢𝐧.</blockquote>\n<blockquote>𝘗𝘰𝘸𝘦𝘳𝘦𝘥 𝘣𝘰𝘵 𝘣𝘺 𝕂𝕒𝕚𝕤𝕒𝕣 𝕌𝕕𝕚𝕟👑</blockquote>", parse_mode=ParseMode.HTML)
             return
             
-        message_text = "<b>Berikut adalah daftar perintah yang bisa digunakan oleh admin:</b>\n\n<i>Powered by <b>Kaisar Udin.</b></i>\n\n"
+        message_text = "𝐁𝐞𝐫𝐢𝐤𝐮𝐭 𝐚𝐝𝐚𝐥𝐚𝐡 𝐝𝐚𝐟𝐭𝐚𝐫 𝐩𝐞𝐫𝐢𝐧𝐭𝐚𝐡 𝐲𝐚𝐧𝐠 𝐛𝐢𝐬𝐚 𝐝𝐢𝐠𝐮𝐧𝐚𝐤𝐚𝐧 𝐨𝐥𝐞𝐡 𝐚𝐝𝐦𝐢𝐧:\n\n𝘗𝘰𝘸𝘦𝘳𝘦𝘥 𝘣𝘰𝘵 𝘣𝘺 𝕂𝕒𝕚𝕤𝕒𝕣 𝕌𝕕𝕚𝕟👑.\n\n"
         admin_commands = [
             "addfsubchannel", "delfsubchannel", "listfsub", "addfsubbutton", 
             "delfsubbutton", "setwelcome", "getprofil", "addvideo", 
@@ -239,7 +239,7 @@ async def help_desc_handler(update: Update, context: ContextTypes.DEFAULT_TYPE):
     keyboard = InlineKeyboardMarkup([[InlineKeyboardButton("⬅️ Kembali", callback_data=back_callback)]])
     
     await query.edit_message_text(
-        f"<b>Deskripsi Perintah : /{cmd_name}</b>\n<blockquote>{html.escape(description)}</blockquote>\n<i>Powered by <b>Kaisar Udin</b></i>.",
+        f"<b>Deskripsi Perintah : /{cmd_name}</b>\n<blockquote>{html.escape(description)}</blockquote>\n<blockquote>𝘗𝘰𝘸𝘦𝘳𝘦𝘥 𝘣𝘰𝘵 𝘣𝘺 𝕂𝕒𝕚𝕤𝕒𝕣 𝕌𝕕𝕚𝕟👑</blockquote>.",
         reply_markup=keyboard,
         parse_mode=ParseMode.HTML
     )
@@ -255,7 +255,7 @@ async def help_main_menu_handler(update: Update, context: ContextTypes.DEFAULT_T
     ])
     
     await query.edit_message_text(
-        "<blockquote><u><b>HAO!</b> Bot ini dikembangkan oleh <i><b>Kaisar Udin👑</b></i></u>\n\nBerikut adalah daftar dari perintah yang bisa digunakan :</blockquote>", 
+        "<blockquote><u>🅷🅰🅾!!! 𝐁𝐨𝐭 𝐢𝐧𝐢 𝐝𝐢𝐤𝐞𝐦𝐛𝐚𝐧𝐠𝐤𝐚𝐧 𝐨𝐥𝐞𝐡 𝕂𝕒𝕚𝕤𝕒𝕣 𝕌𝕕𝕚𝕟👑.</u></blockquote>\n\nBerikut adalah daftar dari perintah yang bisa digunakan :", 
         reply_markup=keyboard, 
         parse_mode=ParseMode.HTML
     )
