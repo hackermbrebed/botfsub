@@ -130,19 +130,19 @@ async def start_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
         video_list = config.get("videos", {})
         
         if not start_parameter:
-            await update.message.reply_text("<blockquote>✅ Anda sudah bergabung. Gunakan link yang dikirim admin.</blockquote>\n♥️♦️♣️♠️\n<blockquote>𝘗𝘰𝘸𝘦𝘳𝘦𝘥 𝘣𝘰𝘵 𝘣𝘺 𝕂𝕒𝕚𝕤𝕒𝕣 𝕌𝕕𝕚𝕟👑</blockquote>", parse_mode=ParseMode.HTML)
+            await update.message.reply_text("<blockquote>✅ Anda sudah bergabung. Gunakan link yang dikirim admin.</blockquote>\n\n<blockquote>𝘗𝘰𝘸𝘦𝘳𝘦𝘥 𝘣𝘰𝘵 𝘣𝘺 𝕂𝕒𝕚𝕤𝕒𝕣 𝕌𝕕𝕚𝕟👑</blockquote>", parse_mode=ParseMode.HTML)
             return
 
         video_to_send = video_list.get(start_parameter)
 
         if video_to_send:
             try:
-                caption_text = "Enjoy aja nontonnya☕\n\n<blockquote>𝘗𝘰𝘸𝘦𝘳𝘦𝘥 𝘣𝘰𝘵 𝘣𝘺 𝕂𝕒𝕚𝕤𝕒𝕣 𝕌𝕕𝕚𝕟👑.</blockquote>"
-                await update.message.reply_video(video=video_to_send, caption=caption_text, parse_mode=ParseMode.HTML)
+                caption_text = "Enjoy aja nontonnya☕\n\n<blockquote>𝘗𝘰𝘸𝘦𝘳𝘦𝘥 𝘣𝘰𝘵 𝘣𝘺 𝕂𝕒𝕚𝕤𝕒𝕣 𝕌𝕕𝕚𝕟👑</blockquote>"
+                await update.message.reply_video(video=video_to_send, caption=caption_text, parse_mode=ParseMode.HTML, protect_content=True)
             except Exception as e:
                 await update.message.reply_text(f"<blockquote>❌ Terjadi kesalahan saat mengirim video: {html.escape(str(e))}</blockquote>", parse_mode=ParseMode.HTML)
         else:
-            await update.message.reply_text("<blockquote>✅ Anda sudah bergabung. Gunakan link yang dikirim admin.</blockquote>\n♥️♦️♣️♠️\n<blockquote>𝘗𝘰𝘸𝘦𝘳𝘦𝘥 𝘣𝘰𝘵 𝘣𝘺 𝕂𝕒𝕚𝕤𝕒𝕣 𝕌𝕕𝕚𝕟👑</blockquote>", parse_mode=ParseMode.HTML)
+            await update.message.reply_text("<blockquote>✅ Anda sudah bergabung. Gunakan link yang dikirim admin.</blockquote>\n\n<blockquote>𝘗𝘰𝘸𝘦𝘳𝘦𝘥 𝘣𝘰𝘵 𝘣𝘺 𝕂𝕒𝕚𝕤𝕒𝕣 𝕌𝕕𝕚𝕟👑</blockquote>", parse_mode=ParseMode.HTML)
 
 # --- Deskripsi Perintah ---
 COMMAND_DESCRIPTIONS = {
@@ -168,8 +168,8 @@ COMMAND_DESCRIPTIONS = {
 async def help_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
     """Menampilkan menu utama bantuan dengan tombol kategori."""
     keyboard = InlineKeyboardMarkup([
-        [InlineKeyboardButton("🄿🄴🅁🄸🄽🅃🄰🄷 🄿🄴🄽🄶🄶🅄🄽🄰👤", callback_data="help_menu_user")],
-        [InlineKeyboardButton("🄿🄴🅁🄸🄽🅃🄰🄷 🄰🄳🄼🄸🄽👤", callback_data="help_menu_admin")],
+        [InlineKeyboardButton("𝐏𝐄𝐑𝐈𝐍𝐓𝐀𝐇 𝐏𝐄𝐍𝐆𝐆𝐔𝐍𝐀👤", callback_data="help_menu_user")],
+        [InlineKeyboardButton("𝐏𝐄𝐑𝐈𝐍𝐓𝐀𝐇 𝐀𝐃𝐌𝐈𝐍👤", callback_data="help_menu_admin")],
     ])
     
     await update.message.reply_text(
@@ -200,7 +200,7 @@ async def help_menu_handler(update: Update, context: ContextTypes.DEFAULT_TYPE):
             await query.edit_message_text("<blockquote>🖕 𝐋𝐮 𝐛𝐮𝐤𝐚𝐧 𝐚𝐝𝐦𝐢𝐧 𝐤𝐨𝐜𝐚𝐤!!! 𝐏𝐞𝐫𝐢𝐧𝐭𝐚𝐡 𝐢𝐧𝐢 𝐜𝐮𝐦𝐚 𝐛𝐢𝐬𝐚 𝐝𝐢𝐚𝐤𝐬𝐞𝐬 𝐚𝐝𝐦𝐢𝐧.</blockquote>\n<blockquote>𝘗𝘰𝘸𝘦𝘳𝘦𝘥 𝘣𝘰𝘵 𝘣𝘺 𝕂𝕒𝕚𝕤𝕒𝕣 𝕌𝕕𝕚𝕟👑</blockquote>", parse_mode=ParseMode.HTML)
             return
             
-        message_text = "𝐁𝐞𝐫𝐢𝐤𝐮𝐭 𝐚𝐝𝐚𝐥𝐚𝐡 𝐝𝐚𝐟𝐭𝐚𝐫 𝐩𝐞𝐫𝐢𝐧𝐭𝐚𝐡 𝐲𝐚𝐧𝐠 𝐛𝐢𝐬𝐚 𝐝𝐢𝐠𝐮𝐧𝐚𝐤𝐚𝐧 𝐨𝐥𝐞𝐡 𝐚𝐝𝐦𝐢𝐧:\n\n𝘗𝘰𝘸𝘦𝘳𝘦𝘥 𝘣𝘰𝘵 𝘣𝘺 𝕂𝕒𝕚𝕤𝕒𝕣 𝕌𝕕𝕚𝕟👑.\n\n"
+        message_text = "𝐁𝐞𝐫𝐢𝐤𝐮𝐭 𝐚𝐝𝐚𝐥𝐚𝐡 𝐝𝐚𝐟𝐭𝐚𝐫 𝐩𝐞𝐫𝐢𝐧𝐭𝐚𝐡 𝐲𝐚𝐧𝐠 𝐛𝐢𝐬𝐚 𝐝𝐢𝐠𝐮𝐧𝐚𝐤𝐚𝐧 𝐨𝐥𝐞𝐡 𝐚𝐝𝐦𝐢𝐧:\n\n𝘗𝘰𝘸𝘦𝘳𝘦𝘥 𝘣𝘰𝘵 𝘣𝘺 𝕂𝕒𝕚𝕤𝕒𝕣 𝕌𝕕𝕚𝕟👑\n\n"
         admin_commands = [
             "addfsubchannel", "delfsubchannel", "listfsub", "addfsubbutton", 
             "delfsubbutton", "setwelcome", "getprofil", "addvideo", 
@@ -250,12 +250,12 @@ async def help_main_menu_handler(update: Update, context: ContextTypes.DEFAULT_T
     await query.answer()
     
     keyboard = InlineKeyboardMarkup([
-        [InlineKeyboardButton("🄿🄴🅁🄸🄽🅃🄰🄷 🄿🄴🄽🄶🄶🅄🄽🄰👤", callback_data="help_menu_user")],
-        [InlineKeyboardButton("🄿🄴🅁🄸🄽🅃🄰🄷 🄰🄳🄼🄸🄽👤", callback_data="help_menu_admin")],
+        [InlineKeyboardButton("𝐏𝐄𝐑𝐈𝐍𝐓𝐀𝐇 𝐏𝐄𝐍𝐆𝐆𝐔𝐍𝐀👤", callback_data="help_menu_user")],
+        [InlineKeyboardButton("𝐏𝐄𝐑𝐈𝐍𝐓𝐀𝐇 𝐀𝐃𝐌𝐈𝐍👤", callback_data="help_menu_admin")],
     ])
     
     await query.edit_message_text(
-        "<blockquote><u>🅷🅰🅾!!! 𝐁𝐨𝐭 𝐢𝐧𝐢 𝐝𝐢𝐤𝐞𝐦𝐛𝐚𝐧𝐠𝐤𝐚𝐧 𝐨𝐥𝐞𝐡 𝕂𝕒𝕚𝕤𝕒𝕣 𝕌𝕕𝕚𝕟👑.</u></blockquote>\n\nBerikut adalah daftar dari perintah yang bisa digunakan :", 
+        "<blockquote><u>🅷🅰🅾!!! 𝐁𝐨𝐭 𝐢𝐧𝐢 𝐝𝐢𝐤𝐞𝐦𝐛𝐚𝐧𝐠𝐤𝐚𝐧 𝐨𝐥𝐞𝐡 𝕂𝕒𝕚𝕤𝕒𝕣 𝕌𝕕𝕚𝕟👑</u></blockquote>\n\nBerikut adalah daftar dari perintah yang bisa digunakan :", 
         reply_markup=keyboard, 
         parse_mode=ParseMode.HTML
     )
